@@ -1,7 +1,7 @@
 # About the project
 
-- Name: pyCliAddressBook
-- Main idea of the project: creating a personal assistant with a command line interface
+- Name: webAssistantTeam4
+- Main idea of the project: creating a personal web-assistant
 - Stack of technologies used: OOP, functional programming, poetry, Pylint, GitHub, git, Trello, Agile, Debugging, Profiling, etc.
 
 
