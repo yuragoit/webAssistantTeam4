@@ -1,15 +1,18 @@
-FROM python:3.10
+FROM python:3.9
 
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app
+COPY requirements.txt .
+# install python dependencies
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY poetry.lock /app/poetry.lock
-COPY pyproject.toml /app/pyproject.toml
+COPY . .
 
-RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-dev
+# running migrations
+RUN python manage.py migrate
 
-COPY /project /app/project
-
+# gunicorn
+CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
