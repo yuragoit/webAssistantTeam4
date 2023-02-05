@@ -21,27 +21,20 @@
                             class="pcoded-mtext">Home Page</span></a>
                 </li>
 
-                <li data-username="Address Book Page" class="nav-item"><a href="/app_address_book.html" class="nav-link"><span
-                        class="pcoded-micon"><i class="feather icon-copy"></i></span><span class="pcoded-mtext">Address Book Page</span></a>
+                <li data-username="Address Book" class="nav-item"><a href="/app_address_book.html" class="nav-link"><span
+                        class="pcoded-micon"><i class="feather icon-copy"></i></span><span class="pcoded-mtext">Address Book App</span></a>
                 </li>
 
                 <li data-username="Notes Page" class="nav-item"><a href="/app_notes.html" class="nav-link"><span
-                        class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Notes Page</span></a>
+                        class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Notes App</span></a>
                 </li>
 
                 <li data-username="News Page" class="nav-item"><a href="/app_news.html" class="nav-link"><span
-                        class="pcoded-micon"><i class="feather icon-clipboard"></i></span><span class="pcoded-mtext">News Page</span></a>
+                        class="pcoded-micon"><i class="feather icon-camera"></i></span><span class="pcoded-mtext">News App</span></a>
                 </li>
 
                 <li data-username="File Storage Page" class="nav-item"><a href="/app_file_storage.html" class="nav-link"><span
-                        class="pcoded-micon"><i class="feather icon-clipboard"></i></span><span class="pcoded-mtext">File Storage Page</span></a>
-                </li>
-
-                <li data-username="Profile Page"
-                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
-                    <a href="/profile.html" class="nav-link">
-                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                            <span class="pcoded-mtext">Profile Page</span></a>
+                        class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">File Storage App</span></a>
                 </li>
 
                 <li class="nav-item pcoded-menu-caption">
@@ -57,7 +50,12 @@
                     </ul>
                 </li>
 
-
+                <li data-username="Profile Page"
+                    class="nav-item {% if 'profile' in segment %} active {% endif %}">
+                    <a href="/profile.html" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                            <span class="pcoded-mtext">Profile Page</span></a>
+                </li>
 
                 <li data-username="Disabled Menu" class="nav-item">
                     <a href="{% url 'logout' %}" class="nav-link">
