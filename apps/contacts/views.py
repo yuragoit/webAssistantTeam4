@@ -36,9 +36,14 @@ class ContactCreateView(SuccessMessageMixin, CreateView):
 
 
 class ContactDeleteView(DeleteView):
-    ...
+    model = Contact
+    success_url = reverse_lazy('contacts:contact_list')
 
 
 class ContactUpdateView(UpdateView):
-    ...
+    title = 'Update Contact'
+    template_name = 'contacts/contact_update.html'
+    model = Contact
+    form_class = ContactForm
+    success_url = reverse_lazy('contacts:contact_list')
 
