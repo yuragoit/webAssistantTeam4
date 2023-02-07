@@ -1,0 +1,120 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Address Book Page {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link href="{% static 'assets/css/contacts.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+{% endblock stylesheets %}
+
+{% block content %}
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <!-- [ breadcrumb ] start -->
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="page-header-title">
+                                        <h5 class="m-b-10">Address Book Page</h5>
+                                    </div>
+                                    <ul class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Address Book</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">({{object_list|length}})</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                                        <div>
+                                            <a href="{% url 'contacts:contact_create' %}" class="btn btn-primary"><i class="bx bx-plus me-1"></i> Add
+                                                New</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="">
+                                        <div class="table-responsive">
+                                            <table class="table project-list-table table-nowrap align-middle table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Phone</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Birthday</th>
+                                                        <th scope="col">Address</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for contact in object_list %}
+                                                    <tr>
+                                                        <td><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                                                class="avatar-sm rounded-circle me-2" />
+                                                            <a href="/contacts/edit/{{contact.id}}" class="text-body">{{contact.first_name}}</a>
+                                                        </td>
+                                                        <td>{{contact.phone_number}}</td>
+                                                        <td>{{contact.email}}</td>
+                                                        <td>{{contact.birthday}}</td>
+                                                        <td>{{contact.address}}</td>
+                                                        <td>
+                                                            <ul class="list-inline mb-0">
+                                                                <li class="list-inline-item">
+                                                                    <a href="{% url 'contacts:contact_update' contact.id %}" data-bs-toggle="tooltip"
+                                                                        data-bs-placement="top" title="Edit" class="px-2 text-primary"><i
+                                                                            class="bx bx-pencil font-size-18"></i></a>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <form action="{% url 'contacts:contact_delete' contact.id %}" method="post">
+                                                                        {% csrf_token %}
+                                                                        <button type="submit" title="Delete"
+                                                                            style="border:none; background-color: transparent;"
+                                                                            class="text-danger">
+                                                                            <i class="bx bx-trash-alt font-size-18"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

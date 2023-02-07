@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b50afb4-f616-435b-bcb9-e1a1e57f9fbe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/apps/contacts/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/contacts/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/static/assets/css/contacts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/templates/contacts/contacts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/templates/contacts/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/templates/includes/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/templates/includes/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LP5TLQuEvc4NTd1hRd8SoLEMyS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b50afb4-f616-435b-bcb9-e1a1e57f9fbe" name="Changes" comment="" />
+      <created>1675759883755</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675759883755</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
