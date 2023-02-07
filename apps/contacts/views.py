@@ -30,7 +30,7 @@ class ContactCreateView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('contacts:contact_list')
 
     def form_valid(self, form):
-        book = AddressBook.objects.get(user=self.request.user)
+        book, _ = AddressBook.objects.get_or_create(user=self.request.user)
         form.instance.address_book = book
         return super().form_valid(form)
 
