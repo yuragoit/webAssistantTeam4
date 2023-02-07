@@ -20,7 +20,7 @@ class ContactForm(forms.ModelForm):
         'class': 'form-control',
         'placeholder': 'Ukraine, Kiev, Soborna Street 100',
     }), required=False)
-    birthday = forms.DateField(initial=datetime.date.today, widget=forms.DateInput(attrs={
+    birthday = forms.DateField(widget=forms.DateInput(attrs={
         'class': 'form-control',
         'type': 'date'
     }), required=False)
