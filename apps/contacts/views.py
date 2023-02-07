@@ -4,12 +4,11 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import ContactForm
 from django.urls import reverse_lazy
+from apps.common.mixins import TitleMixin
 # Create your views here.
 
 
-
-
-class ContactsListView(ListView):
+class ContactsListView(TitleMixin, ListView):
     title = 'Contacts'
     template_name = 'contacts/contacts.html'
     model = Contact
@@ -23,7 +22,7 @@ class ContactsListView(ListView):
         return queryset.filter(address_book=book)
 
 
-class ContactCreateView(SuccessMessageMixin, CreateView):
+class ContactCreateView(TitleMixin, SuccessMessageMixin, CreateView):
     title = 'Create contact'
     template_name = 'contacts/contact_add.html'
     form_class = ContactForm
@@ -40,7 +39,7 @@ class ContactDeleteView(DeleteView):
     success_url = reverse_lazy('contacts:contact_list')
 
 
-class ContactUpdateView(UpdateView):
+class ContactUpdateView(TitleMixin, UpdateView):
     title = 'Update Contact'
     template_name = 'contacts/contact_update.html'
     model = Contact
