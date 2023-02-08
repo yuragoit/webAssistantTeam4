@@ -7,7 +7,6 @@ from apps.home import views
 urlpatterns = [
     # The home page
     path("", views.index, name="home"),
-    path("noteapp/", include("apps.noteapp.urls")),
     # Matches any html file
     re_path(r"^.*\.*", views.pages, name="pages"),
 ]

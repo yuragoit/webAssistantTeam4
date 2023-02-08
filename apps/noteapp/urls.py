@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import app_notes
+from . import views
+# from .views import app_notes
 
 urlpatterns = [
     # The home page
-    path("app_notes.html", app_notes, name="app_notes")
+    path("", views.app_notes, name="app_notes")
 ]
