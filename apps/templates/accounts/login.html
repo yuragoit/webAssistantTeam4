@@ -53,6 +53,17 @@
                     </form>
 
                     <p class="mb-0 text-muted">Don’t have an account? <a href="{% url 'register' %}" >Sign UP</a></p>
+
+                    <div class="mx-2">
+                        <form method="post" action="/social_login/github/login/?next=%2F">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="h6m97MXBrCZ4puf7LSDte4dNcFBhfcRvzW1T0rsxiFf2QizpkDjzKtQgND1GD6Xv">
+                            <button class="btn btn-light" type="submit" style="background-color: #ffffff; border-color: #ffffff;">
+                                <i class="feather icon-github auth-icon"></i></button>
+                        </form>
+                        <span class="mx-1">Sign IN with GitHub</span>
+                    </div>
+
+
                     <br />
                     <p class="mb-2 text-muted">
                         &copy; <a target="_blank" href="https://bit.ly/37fF9RT">TEAM4 GoIT</a>

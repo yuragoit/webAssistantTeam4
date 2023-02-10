@@ -4,7 +4,6 @@ from pathlib import Path
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
-
 from .models import File
 from .сonstans import REGISTER_EXTENSIONS, UPLOADS_DIR
 
