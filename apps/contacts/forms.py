@@ -1,6 +1,6 @@
 from django import forms
 from .models import Contact
-import datetime
+from phonenumber_field.formfields import PhoneNumberField
 
 
 class ContactForm(forms.ModelForm):
@@ -8,7 +8,7 @@ class ContactForm(forms.ModelForm):
         'class': 'form-control',
         'placeholder': 'Bob',
     }))
-    phone_number = forms.CharField(widget=forms.TextInput(attrs={
+    phone_number = PhoneNumberField(widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': '+380661234567',
     }))
