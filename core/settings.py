@@ -49,13 +49,17 @@ INSTALLED_APPS = [
     "apps.home",
     "apps.noteapp",
     "apps.contacts",
+    "apps.storage",
+    "apps.news",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    # "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
+    # "django.middleware.cache.FetchFromCacheMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -89,15 +93,15 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if os.environ.get("DB_ENGINE") and os.environ.get("DB_ENGINE") == "mysql":
+if os.environ.get("DB_ENGINE") == "postgres" and 1 == 2:
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": os.getenv("DB_NAME", "db"),
-            "USER": os.getenv("DB_USERNAME", "db_usr"),
-            "PASSWORD": os.getenv("DB_PASS", "pass"),
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.getenv("DB_NAME", "assistant"),
             "HOST": os.getenv("DB_HOST", "localhost"),
-            "PORT": os.getenv("DB_PORT", 3306),
+            "PORT": os.getenv("DB_PORT", 5432),
+            "USER": os.getenv("DB_USERNAME", "postgres"),
+            "PASSWORD": os.getenv("DB_PASS", "postgres"),
         },
     }
 else:
@@ -149,7 +153,6 @@ STATIC_URL = "/static/"
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (os.path.join(CORE_DIR, "apps/static"),)
-
 
 #############################################################
 #############################################################

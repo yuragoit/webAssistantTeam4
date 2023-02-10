@@ -32,7 +32,9 @@
                     <div class="main-body">
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
-                            <h3>Team, please add you view content from developed APP to appropriate html file inside class "page-wrapper"</h3>
+                            {% for elem in news %}
+                            <li>{{elem}}</li>
+                            {% endfor %}
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
