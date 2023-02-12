@@ -11,7 +11,7 @@ class ViewNews(ListView):
     model = News
     context_object_name = 'scrapped_news'
     queryset = model.objects.all()
-    # call_command("crawl")
+    # call_command("crawl")# it needs to make call by event
 
 
 # Create your views here.
@@ -19,5 +19,3 @@ def app_news(request):
     context = {"news": ViewNews.queryset}
     html_template = loader.get_template("home/app_news.html")
     return HttpResponse(html_template.render(context, request))
-
-
