@@ -27,14 +27,20 @@ ASSETS_ROOT = os.getenv("ASSETS_ROOT", "/static/assets")
 # load production server from .env
 ALLOWED_HOSTS = [
     "localhost",
-    "localhost:85",
+    "localhost:5085",
     "127.0.0.1",
     env("SERVER", default="127.0.0.1"),
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:85",
+    "http://localhost:5085",
     "http://127.0.0.1",
     "https://" + env("SERVER", default="127.0.0.1"),
+]
+
+AUTHENTICATION_BACKENDS = [
+    "core.custom-auth-backend.CustomBackend",
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 # Application definition
@@ -44,8 +50,14 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
+    "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    # "sslserver",
     "apps.home",
     "apps.noteapp",
     "apps.contacts",
@@ -156,3 +168,20 @@ STATICFILES_DIRS = (os.path.join(CORE_DIR, "apps/static"),)
 
 #############################################################
 #############################################################
+# OAuth settings
+
+GITHUB_ID = os.getenv("GITHUB_ID", None)
+GITHUB_SECRET = os.getenv("GITHUB_SECRET", None)
+GITHUB_AUTH = GITHUB_SECRET is not None and GITHUB_ID is not None
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = "none"
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {}
+
+
+
+if GITHUB_AUTH:
+    SOCIALACCOUNT_PROVIDERS["github"] = {
+        "APP": {"client_id": GITHUB_ID, "secret": GITHUB_SECRET, "key": ""}
+    }
