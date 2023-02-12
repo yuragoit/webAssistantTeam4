@@ -27,7 +27,7 @@
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a href="{% url "storage:upload" %}" >File Storage</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">{{ title }}</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Downloads</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -41,10 +41,7 @@
                                  <thead>
                                         <tr>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Size</th>
-                                            <th scope="col">Upload at</th>
-                                            <th scope="col"></th>
-                                            <th scope="col"></th>
+                                            <th scope="col">Download at</th>
                                         </tr>
                                  </thead>
                                  <tbody>
@@ -74,26 +71,7 @@
                                                     {% endif %}
                                                     {{file.name}}
                                                 </td>
-                                                <td>{{file.size|filesizeformat}}</td>
-                                                <td>{{file.upload_at.date}}</td>
-                                                <td>
-                                                    <form action="{% url 'storage:delete' file.name%}" method="post">
-                                                    {% csrf_token %}
-                                                        <button type="submit" class="btn">
-                                                            <i class="feather icon-trash"></i>
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                    <form action="{% url 'storage:download' file.name%}" method="get">
-                                                    {% csrf_token %}
-                                                        <button type="submit" class="btn">
-                                                            <i class="feather icon-download"></i>
-                                                            Download
-                                                        </button>
-                                                    </form>
-                                                </td>
+                                                <td>{{file.download_at.date}}</td>
                                             </tr>
                                         {% endfor %}
                              </table>
