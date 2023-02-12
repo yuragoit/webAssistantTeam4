@@ -49,6 +49,11 @@
                                   <div class="panel-heading">
                                       <h4 class="panel-title">Contact info</h4>
                                   </div>
+                                  {% if form.phone_number.errors %}
+                                        <div class="alert alert-danger">
+                                            {{ form.phone_number.errors }}
+                                        </div>
+                                    {% endif %}
                                   <div class="panel-body">
                                       <div class="form-group">
                                           <label for="{{ form.first_name.id_for_label }}" class="col-sm-2 control-label">First Name</label>
@@ -105,4 +110,5 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+{% endblock javascripts %}

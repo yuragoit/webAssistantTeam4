@@ -11,6 +11,7 @@ urlpatterns = [
     path("notes/", include("apps.noteapp.urls")),
     path("news/", include("apps.news.urls")),
     path("storage/", include("apps.storage.urls")),
+    path('news/', include('apps.news.urls')),
     # ADD NEW Routes HERE
 
     # Leave `Home.Urls` as last the last line

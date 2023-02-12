@@ -32,12 +32,66 @@
                     <div class="main-body">
                         <div class="page-wrapper" style="display: flex">
                             <!-- [ Main Content ] start -->
-                            <div>
-                                <form action="{% url "storage:upload" %}" method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <input type="file" name="upload_file" class="file-upload">
-                                <button type="submit" class="file-upload">Upload</button>
-                                </form>
+                            <div style="display: flex">
+                                <div>
+                                    <form method="get">
+                                        <div class="list-group">
+                                            <a href="{% url "storage:archives" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-folder"></i></span>
+                                                Archives</a>
+                                            <a href="{% url "storage:audio" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-music"></i></span>
+                                                Audio</a>
+                                            <a href="{% url "storage:documents" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-file-text"></i></span>
+                                                Documents</a>
+                                            <a href="{% url "storage:images" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-image"></i></span>
+                                                Images</a>
+                                            <a href="{% url "storage:programs" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-command"></i></span>
+                                                Programs</a>
+                                            <a href="{% url "storage:video" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-video"></i></span>
+                                                Video</a>
+                                            <a href="{% url "storage:others" %}"
+                                               class="list-group-item list-group-item"
+                                               style="background: rgba(0, 0, 0, 0)"><span
+                                                    class="pcoded-micon"><i class="feather icon-package"></i></span>
+                                                Others</a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div style="margin: 50px 300px">
+                                    <form action="{% url "storage:upload" %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                        <div class="input-group mb-3">
+                                              <div class="custom-file">
+                                                  <input type="file" class="custom-file-input" id="inputGroupFile02" name="upload_file">
+                                                  <label class="custom-file-label aria-label" for="inputGroupFile02">Choose File<span
+                                                    class="pcoded-micon" style="padding-left: 5px"><i class="feather icon-file"></i></span>
+                                                  </label>
+                                              </div>
+                                              <div class="input-group-append">
+                                                  <button class="input-group-text" style="background: #1dd5d2; color: white; border-bottom-color: #1dd5d2">Upload
+                                                  <span
+                                                    class="pcoded-micon" style="padding-left: 5px"><i class="feather icon-upload"></i></span></button>
+                                              </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                             <!-- [ Main Content ] end -->
                         </div>
@@ -46,7 +100,7 @@
             </div>
         </div>
     </div>
-    <!-- [ Main Content ] end -->
+    <!-- [ Main Content ] end -->1
 
 {% endblock content %}
 
