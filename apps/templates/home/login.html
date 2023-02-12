@@ -2,7 +2,7 @@
 
 {% block title %} Login {% endblock %}
 
-{% block content %}   
+{% block content %}
 
     <div class="auth-wrapper">
         <div class="auth-content">
@@ -14,31 +14,54 @@
             </div>
             <div class="card">
                 <div class="card-body text-center">
-                    <div class="mb-4">
-                        <i class="feather icon-unlock auth-icon"></i>
-                    </div>
+
                     <h3 class="mb-4">Login</h3>
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="input-group mb-4">
-                        <input type="password" class="form-control" placeholder="password">
-                    </div>
-                    <div class="form-group text-left">
-                        <div class="checkbox checkbox-fill d-inline">
-                            <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                            <label for="checkbox-fill-a1" class="cr"> Save Details</label>
+
+                    <span class="mb-0 text-muted">
+                        {% if msg %}
+                            <span class="text-danger">{{ msg | safe }}</span>
+                        {% else %}
+                            Add your credentials
+                        {% endif %}
+                    </span>
+
+                    <br />
+                    <br />
+
+                    <form role="form" method="post" action="">
+
+                        {% csrf_token %}
+
+                        <div class="input-group mb-3">
+                            {{ form.username }}
                         </div>
+
+                        <div class="input-group mb-4">
+                            {{ form.password }}
+                        </div>
+
+                        <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Login</button>
+
+                    </form>
+
+                    <p class="mb-0 text-muted">DonвЂ™t have an account? <a href="{% url 'register' %}" >Sign UP</a></p>
+
+                    <br />
+
+                    {% if GITHUB_AUTH %}
+                    <div class="mx-2">
+                        <form method="post" action="/social_login/github/login/?next=%2F">
+                            {% csrf_token %}
+                            <button class="btn btn-light" type="submit" style="background-color: #ffffff; border-color: #ffffff;">
+                                <i class="feather icon-github auth-icon"></i></button>
+                        </form>
+                        <span class="mx-1">Sign IN with GitHub</span>
                     </div>
-                    <button class="btn btn-primary shadow-2 mb-4">Login</button>
-                    <p class="mb-2 text-muted">Forgot password? <a href="/auth-reset-password.html">Reset</a></p>
-                    <p class="mb-0 text-muted">Don’t have an account? <a href="/register.html">Sign UP</a></p>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
     </div>
 
 {% endblock content %}
-
-<!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}

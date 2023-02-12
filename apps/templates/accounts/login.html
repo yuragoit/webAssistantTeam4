@@ -2,7 +2,7 @@
 
 {% block title %} Login {% endblock %}
 
-{% block content %}   
+{% block content %}
 
     <div class="auth-wrapper">
         <div class="auth-content">
@@ -24,7 +24,7 @@
                             <span class="text-danger">{{ msg | safe }}</span>
                         {% else %}
                             Add your credentials
-                        {% endif %} 
+                        {% endif %}
                     </span>
 
                     <br />
@@ -32,16 +32,16 @@
 
                     <form role="form" method="post" action="">
 
-                        {% csrf_token %}                   
+                        {% csrf_token %}
 
                         <div class="input-group mb-3">
                             {{ form.username }}
                         </div>
-                        
+
                         <div class="input-group mb-4">
                             {{ form.password }}
                         </div>
-                        
+
                         <div class="form-group text-left">
                             <div class="checkbox checkbox-fill d-inline">
                                 <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
@@ -56,7 +56,7 @@
 
                     <div class="mx-2">
                         <form method="post" action="/social_login/github/login/?next=%2F">
-                            <input type="hidden" name="csrfmiddlewaretoken" value="h6m97MXBrCZ4puf7LSDte4dNcFBhfcRvzW1T0rsxiFf2QizpkDjzKtQgND1GD6Xv">
+                            {% csrf_token %}
                             <button class="btn btn-light" type="submit" style="background-color: #ffffff; border-color: #ffffff;">
                                 <i class="feather icon-github auth-icon"></i></button>
                         </form>
