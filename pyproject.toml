@@ -23,8 +23,6 @@ django-allauth = "0.52.0"
 django-phonenumber-field = "^7.0.2"
 django-phonenumbers = "^1.0.1"
 django-sslserver = "^0.22"
-django-phonenumber-field = "^7.0.2"
-django-phonenumbers = "^1.0.1"
 itemadapter = "^0.7.0"
 Scrapy = "^2.8.0"
 
