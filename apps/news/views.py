@@ -19,3 +19,5 @@ def app_news(request):
     context = {"news": ViewNews.queryset}
     html_template = loader.get_template("home/app_news.html")
     return HttpResponse(html_template.render(context, request))
+
+
