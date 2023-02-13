@@ -21,7 +21,6 @@ You can go to :
 
 - Main idea of the project: creating a personal web-assistant with useful modules
 - Deadline: MVP - 10 days, Prod - 2 days, presentation - 1 day
-- Stack of technologies used: OOP, functional programming, poetry, Pylint, GitHub, git, Trello, Agile, Debugging, Profiling, etc.
 - Supported modules: authentication (AUTH functionality), contacts (CRUD, filter functionality for address book), noteapp (CRUD, filter functionality for notes), news (news scraping module via spyder), storage (upload and download files to / from server, sorting by categories)
 
 ## About the Team
