@@ -5,7 +5,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import ContactForm
 from django.urls import reverse_lazy
 from apps.common.mixins import TitleMixin
-# Create your views here.
+from datetime import timedelta
+from django.db.models.functions import Now
 
 
 class ContactsListView(TitleMixin, ListView):
@@ -18,8 +19,17 @@ class ContactsListView(TitleMixin, ListView):
             book = AddressBook.objects.get(user=self.request.user)
         except:
             return None
+
         queryset = super().get_queryset()
-        return queryset.filter(address_book=book)
+        queryset = queryset.filter(address_book=book)
+        if self.request.POST.get('birthday_option'):
+            in_days = int(self.request.POST.get('birthday_option')) - 1
+            print(in_days)
+            queryset = queryset.filter(birthday__gte=Now() + timedelta(days=in_days))
+        return queryset
+
+    def post(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
 
 class ContactCreateView(TitleMixin, SuccessMessageMixin, CreateView):
