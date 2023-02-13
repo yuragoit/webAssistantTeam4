@@ -1,3 +1,4 @@
+from django.template.defaulttags import url
 from django.urls import path
 from . import views
 
@@ -12,5 +13,8 @@ urlpatterns = [
     path("documents/", views.documents, name="documents"),
     path("programs/", views.programs, name="programs"),
     path("audio/", views.audio, name="audio"),
+    path('download/<str:name>', views.download, name="download"),
+    path('downloads/', views.render_downloads_page, name="downloads"),
     path("others/", views.others, name="others"),
+    path("delete/<str:name>", views.delete_file, name="delete"),
 ]
