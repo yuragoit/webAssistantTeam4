@@ -105,15 +105,15 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if os.environ.get("DB_ENGINE") == "postgres":
+if os.environ.get("DB_ENGINE") == "postgresql" and os.environ.get("DEBUG") == "False":
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.postgresql", #django.db.backends.postgresql_psycopg2
+            "ENGINE": "django.db.backends.postgresql",
             "NAME": os.getenv("DB_NAME", "assistant"),
+            "USER": os.getenv("DB_USERNAME", "root"),
+            "PASSWORD": os.getenv("DB_PASS", "root"),
             "HOST": os.getenv("DB_HOST", "localhost"),
             "PORT": os.getenv("DB_PORT", 5432),
-            "USER": os.getenv("DB_USERNAME", "postgres"),
-            "PASSWORD": os.getenv("DB_PASS", "postgres"),
         },
     }
 else:
