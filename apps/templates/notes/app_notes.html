@@ -28,7 +28,7 @@
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">Notes</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'notes:notes_list'%}">Notes</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -46,8 +46,8 @@
                             <table class="table project-list-table table-nowrap align-middle table-borderless" id="example">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Short description</th>
                                         <th scope="col">Created</th>
+                                        <th scope="col">Short description</th>
                                         <th scope="col">Tags</th>
                                         <th scope="col">Done</th>
                                         <th scope="col">Action</th>
@@ -56,16 +56,18 @@
                                 <tbody>
                                     {% for note in object_list %}
                                     <tr>
-                                        {% if note.done %}
-                                        <td><a href="{% url 'notes:note_detail' note.id %}" class="text-muted text-through">{{note.name}}</a>
-                                        </td>
-                                        {% else %}
-                                        <td><a href="{% url 'notes:note_detail' note.id %}" class="text-muted">{{note.name}}</a>
-                                        </td>
-                                        {% endif %}
                                         <td>{{note.created}}</td>
+                                        {% if note.done %}
+                                        <td><a href="{% url 'notes:note_detail' note.id %}" role="button" class="text-through">{{note.name}}</a>
+                                        </td>
                                         <td>{{note.teg_list}}</td>
                                         <td>{{note.done}}</td>
+                                        {% else %}
+                                        <td><a href="{% url 'notes:note_detail' note.id %}" role="button">{{note.name}}</a>
+                                        </td>
+                                        <td>{{note.teg_list}}</td>
+                                        <td><a href="{% url 'notes:notes_set_done' note.id %}" role="button">{{note.done}}</a></td>
+                                        {% endif %}
                                         <td>
                                             <ul class="list-inline mb-0">
                                                 <li class="list-inline-item">
@@ -115,6 +117,7 @@
         searching: true,
         bInfo: true,
         bSort: true,
+        order: [[ 0, "desc" ]],
         columnDefs: [{
             targets: [4],
             orderable: false,
