@@ -112,4 +112,4 @@ def delete_file(request, name):
     if os.path.exists(Path(f'{UPLOADS_DIR}/{get_folder_name(name)}/{name}')):
         os.remove(Path(f'{UPLOADS_DIR}/{get_folder_name(name)}/{name}'))
 
-    return render_storage_pages(request, get_folder_name(name))
+    return redirect(f'storage:{get_folder_name(name).lower()}')
