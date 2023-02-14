@@ -32,8 +32,13 @@
                     <div class="main-body">
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
+                            {% for category in categoryes %}
+                            <p4>{{category}}</p4>
                             {% for elem in news %}
-                            <li>{{elem}}</li>
+                            {% if elem.category == category %}
+                            <li><a href="https://{{elem.link}}" role="button">{{elem}}</a></li>
+                            {% endif %}
+                            {% endfor %}
                             {% endfor %}
                             <!-- [ Main Content ] end -->
                         </div>
