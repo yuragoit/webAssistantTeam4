@@ -22,6 +22,18 @@ def app_news(request):
         if elem.category not in categoryes:
             categoryes.append(elem.category)
 
-    context = {"news": queryset, "categoryes": categoryes}
+    context = {"categoryes": categoryes}
     html_template = loader.get_template("home/app_news.html")
+    return HttpResponse(html_template.render(context, request))
+
+
+def detail(request, pk):
+    queryset = ViewNews.queryset
+    news = []
+    for elem in queryset:
+        if elem.category.id == pk:
+            news.append(elem)
+
+    context = {"news": news}
+    html_template = loader.get_template("home/app_news_detail.html")
     return HttpResponse(html_template.render(context, request))
