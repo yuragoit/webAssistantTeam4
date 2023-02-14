@@ -9,15 +9,19 @@ from .models import News
 
 class ViewNews(ListView):
     model = News
-    context_object_name = 'scrapped_news'
+    context_object_name = "scrapped_news"
     queryset = model.objects.all()
     call_command("crawl")
 
 
 # Create your views here.
 def app_news(request):
-    context = {"news": ViewNews.queryset}
+    queryset = ViewNews.queryset
+    categoryes = []
+    for elem in queryset:
+        if elem.category not in categoryes:
+            categoryes.append(elem.category)
+
+    context = {"news": queryset, "categoryes": categoryes}
     html_template = loader.get_template("home/app_news.html")
     return HttpResponse(html_template.render(context, request))
-
-
