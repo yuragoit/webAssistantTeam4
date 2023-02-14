@@ -22,7 +22,7 @@
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript:">News</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'news:news_list'%}">News</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -32,8 +32,8 @@
                     <div class="main-body">
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
-                            {% for category in categoryes %}
-                            <li><a href="{% url 'news:news_detail' category.id %}" role="button">{{category}}</a></li>
+                            {% for elem in news %}
+                            <li><a href="https://{{elem.link}}" role="button">{{elem}}</a></li>
                             {% endfor %}
                             <!-- [ Main Content ] end -->
                         </div>
