@@ -1,12 +1,16 @@
-from .models import Contact, AddressBook
+import operator
+from functools import reduce
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
-from .forms import ContactForm
-from django.urls import reverse_lazy
-from apps.common.mixins import TitleMixin
-from datetime import timedelta
 from django.db.models.functions import Now
+from django.urls import reverse_lazy
+from django.db.models import Q
+from datetime import timedelta, datetime
+
+from apps.common.mixins import TitleMixin
+from .models import Contact, AddressBook
+from .forms import ContactForm
 
 
 class ContactsListView(TitleMixin, ListView):
@@ -23,9 +27,27 @@ class ContactsListView(TitleMixin, ListView):
         queryset = super().get_queryset()
         queryset = queryset.filter(address_book=book)
         if self.request.POST.get('birthday_option'):
-            in_days = int(self.request.POST.get('birthday_option')) - 1
+            in_days = int(self.request.POST.get('birthday_option'))
+            # Build the list of month/day tuples
+            dates = []
+            from_date = datetime.now().date()
+            to_date = datetime.now().date() + timedelta(in_days)
+
+            while from_date <= to_date:
+                dates.append((from_date.month, from_date.day))
+                from_date += timedelta(days=1)
+
+            # Transform each into queryset keyword args
+            dates = (dict(
+                zip(('birthday__month', 'birthday__day'), t)) for t in dates)
+            queryset_prepare = reduce(operator.or_, (Q(**d) for d in dates))
+            queryset = queryset.filter(queryset_prepare)
+
+        elif self.request.POST.get('birthday_option_in'):
+            in_days = int(self.request.POST.get('birthday_option_in')) - 1
             print(in_days)
             queryset = queryset.filter(birthday__gte=Now() + timedelta(days=in_days))
+
         return queryset
 
     def post(self, request, *args, **kwargs):

@@ -18,7 +18,7 @@ class ContactForm(forms.ModelForm):
     }), required=False)
     address = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Ukraine, Kiev, Soborna Street 100',
+        'placeholder': 'UA, Kiev, Some Street 0',
     }), required=False)
     birthday = forms.DateField(widget=forms.DateInput(attrs={
         'class': 'form-control',

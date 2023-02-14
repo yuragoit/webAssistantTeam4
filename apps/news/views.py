@@ -11,7 +11,7 @@ class ViewNews(ListView):
     model = News
     context_object_name = "scrapped_news"
     queryset = model.objects.all()
-    call_command("crawl")
+    # call_command("crawl")
 
 
 # Create your views here.

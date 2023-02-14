@@ -170,8 +170,8 @@ STATICFILES_DIRS = (os.path.join(CORE_DIR, "apps/static"),)
 #############################################################
 # OAuth settings
 
-GITHUB_ID = os.getenv("GITHUB_ID", None)
-GITHUB_SECRET = os.getenv("GITHUB_SECRET", None)
+GITHUB_ID = os.getenv("GITHUB_ID", "None")
+GITHUB_SECRET = os.getenv("GITHUB_SECRET", "None")
 GITHUB_AUTH = GITHUB_SECRET is not None and GITHUB_ID is not None
 
 SITE_ID = 1
