@@ -79,7 +79,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div style="margin: 50px 300px">
+                                <div style="margin: 50px 270px">
                                     <form action="{% url "storage:upload" %}" method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                         <div class="input-group mb-3">
@@ -87,19 +87,27 @@
                                                   <input type="file" class="custom-file-input" id="inputGroupFile02" name="upload_file" value="Choose File">
                                                   <label class="custom-file-label" for="inputGroupFile02">Choose File</label>
                                               </div>
-
+                                            <div class="input-group-append">
+                                              <button class="input-group-text" style="background: #1dd5d2; color: white; border-bottom-color: #1dd5d2;" type="reset">Reset
+                                              <span
+                                                class="pcoded-micon" style="padding-left: 5px"><i class="feather icon-repeat"></i></span></button>
+                                            </div>
                                               <div class="input-group-append">
                                                   <button class="input-group-text" style="background: #1dd5d2; color: white; border-bottom-color: #1dd5d2">Upload
                                                   <span
                                                     class="pcoded-micon" style="padding-left: 5px"><i class="feather icon-upload"></i></span></button>
                                               </div>
                                         </div>
-                                        <div class="input-group-append">
-                                          <button class="input-group-text" style="background: #1dd5d2; color: white; border-bottom-color: #1dd5d2; margin-left: 150px" type="reset">Reset
-                                          <span
-                                            class="pcoded-micon" style="padding-left: 5px"><i class="feather icon-repeat"></i></span></button>
-                                        </div>
                                     </form>
+                                    <div>
+                                        <span class="mb-0 text-muted">
+                                            {% if flag %}
+                                                <span class="text-success">{{ msg | safe }}</span>
+                                            {% else %}
+                                                <span class="text-danger">{{ msg | safe }}</span>
+                                            {% endif %}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <!-- [ Main Content ] end -->

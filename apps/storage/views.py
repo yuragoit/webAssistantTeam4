@@ -4,7 +4,7 @@ from pathlib import Path
 from wsgiref.util import FileWrapper
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
-from django.http import FileResponse, HttpResponse, StreamingHttpResponse
+from django.http import StreamingHttpResponse
 from django.shortcuts import render, redirect
 from core.settings import CORE_DIR
 from .models import File, Downloads
@@ -37,7 +37,17 @@ def upload(request):
             model_file = File(name=filename, type=get_folder_name(filename), owner=request.user, size=file.size)
             model_file.save()
 
-        return redirect('home/app_file_storage.html')
+        flag = True
+        msg = 'File successfully uploaded'
+
+        return render(request, 'home/app_file_storage.html', {'msg': msg, 'flag': flag})
+
+    elif request.method == 'POST' and not request.FILES.get('upload_file'):
+        flag = False
+        msg = 'File doesn\'t choose'
+
+        return render(request, 'home/app_file_storage.html', {'msg': msg, 'flag': flag})
+
     return render(request, 'home/app_file_storage.html')
 
 
