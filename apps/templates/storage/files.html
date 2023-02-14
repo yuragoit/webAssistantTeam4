@@ -79,7 +79,7 @@
                                                 <td>
                                                     <form action="{% url 'storage:delete' file.name%}" method="post">
                                                     {% csrf_token %}
-                                                        <button type="submit" class="btn">
+                                                        <button type="submit" class="btn" style="background-color: #1dd5d2;">
                                                             <i class="feather icon-trash"></i>
                                                             Delete
                                                         </button>
@@ -88,7 +88,7 @@
                                                 <td>
                                                     <form action="{% url 'storage:download' file.name%}" method="get">
                                                     {% csrf_token %}
-                                                        <button type="submit" class="btn">
+                                                        <button type="submit" class="btn" style="background-color: #1dd5d2;">
                                                             <i class="feather icon-download"></i>
                                                             Download
                                                         </button>
