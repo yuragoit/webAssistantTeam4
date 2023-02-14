@@ -3,17 +3,13 @@ services:
   postgres_db:
     container_name: 'postgres_db'
     image: postgres:13.0-alpine
+    privileged: true
     restart: always
     ports:
       - '5432:5432'
     env_file: .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    # healthcheck:
-    #   test: pg_isready -U postgres
-    #   interval: 60s
-    #   timeout: 60s
-    #   retries: 5
     networks:
       - db_network
 
@@ -40,8 +36,8 @@ services:
       - ./nginx:/etc/nginx/conf.d
     networks:
       - web_network
-    depends_on: 
-      - assistant_app
+    depends_on:
+      - postgres_db
 
 networks:
   db_network:
