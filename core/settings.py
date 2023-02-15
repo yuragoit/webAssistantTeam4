@@ -30,11 +30,13 @@ ALLOWED_HOSTS = [
     "localhost:5085",
     "127.0.0.1",
     env("SERVER", default="127.0.0.1"),
+    env("SERVER_REPLICA", default="127.0.0.1"),
 ]
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5085",
     "http://127.0.0.1",
     "https://" + env("SERVER", default="127.0.0.1"),
+    "https://" + env("SERVER_REPLICA", default="127.0.0.1"),
 ]
 
 AUTHENTICATION_BACKENDS = [
