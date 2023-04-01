@@ -22,7 +22,7 @@ You can go to :
 
 - Main idea of the project: creating a personal web-assistant with useful modules
 - Deadline: MVP - 10 days, Prod - 2 days, presentation - 1 day
-- Supported modules: authentication (AUTH functionality), contacts (CRUD, filter functionality for address book), noteapp (CRUD, filter functionality for notes), news (news scraping module via spyder), storage (upload and download files to / from server, sorting by categories)
+- Supported modules: authentication (AUTH functionality), contacts (CRUD, filter functionality for address book, validation), noteapp (CRUD, filter functionality for notes), news (news scraping module via spyder), storage (upload and download files to / from server, sorting by categories)
 
 ## About the Team
 
