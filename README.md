@@ -74,8 +74,8 @@ Visit `http://localhost:5085` in your browser. The app should be up and running
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/app-generator/sample-docker-django-pgsql.git
-$ cd sample-docker-django-pgsql
+$ git clone https://github.com/yuragoit/webAssistantTeam4.git
+$ cd webAssistantTeam4
 ```
 
 ### Set Up for Unix, MacOS
